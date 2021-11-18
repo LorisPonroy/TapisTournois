@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,300&family=Ubuntu:wght@300;700&display=swap');
+
+:root{
+  --col-primary-dark: hsl(0, 69%, 31%);
+  --col-primary: hsl(0, 55%, 50%);
+  --col-primary-light: hsl(0, 100%, 92%);
+  --col-light: hsl(0, 0%, 98%);
+  --col-dark: hsl(0, 0%, 10%);
+  --col-gray: hsl(0, 0%, 20%);
+  --col-shadow: hsla(0, 0%, 0%, .15);
+  --col-transparent: rgba(0, 0, 0, 0.06);
+}
+
+// @media (prefers-color-scheme: dark){
+//   :root{
+//     --col-primary-dark: hsl(0, 53%, 51%);
+//     --col-primary: hsl(0, 55%, 28%);
+//     --col-primary-light: hsl(0, 13%, 30%);
+//     --col-light: hsl(0, 0%, 12%);
+//     --col-dark: hsl(0, 0%, 91%);
+//     --col-gray: hsl(0, 0%, 61%);
+//     --col-shadow: rgba(0, 0, 0, 0.15);
+//     --col-transparent: rgba(0, 0, 0, 0.06);
+//   }  
+// }
