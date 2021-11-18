@@ -1,5 +1,6 @@
 import logo from './logo.png';
 import './App.css';
+import LastTournament from './components/LastTournament'
 
 function App() {
   return (
@@ -9,15 +10,8 @@ function App() {
         <p>
           Bienvenu sur l'app de TAPIS :D
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <LastTournament/>
     </div>
   );
 }
