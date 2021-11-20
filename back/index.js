@@ -4,7 +4,6 @@ const PORT = process.env.PORT || 4000
 var cors = require('cors')
 const app = express()
 app.use(cors())
-
 var session = require('express-session');
 
 //================================== MISE EN PLACE DU SERVEUR ==================================
@@ -14,7 +13,7 @@ const db = mysql.createConnection({
     password: "",
     database: "test"
   });
-/*
+
 db.connect(function(err) {
     if (err){
         console.log(err);
@@ -23,17 +22,16 @@ db.connect(function(err) {
         console.log("Connecté à la base de données MySQL!");
     }
 });
-*/
+
 app.use(express.static('public'))
-app.use(session({
-    secret: "fd34s@!@dfa453f3DF#$D&W",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: !true }
-}));
 //================================== FONCTIONS UTILES ==================================
+
+CONNECTION_TOKEN = "1234"
+
 function checkAuth(req, res, next) {
-    if (!req.session.user_id) {
+    var jsonObject = JSON.parse(data);
+    var userToken = jsonObject['authToken']
+    if (userToken!=CONNECTION_TOKEN) {
       res.send('Vous n\'êtes pas connecté en mode admin !');
     } else {
       next();
@@ -45,7 +43,7 @@ app.get('/', (req, res) => {
     res.send('Le bacsk fonctionne')
 });
 
-app.get('/islogged', (req, res) => {
+app.get('/islogged', (req, res) => { //Sert également à rien
     if (!req.session.user_id) {
         res.send(false);
       } else {
@@ -53,8 +51,7 @@ app.get('/islogged', (req, res) => {
       }
 });
 
-app.get('/logout', (req, res) => {
-    delete req.session.user_id;
+app.get('/logout', (req, res) => { //Actuellement, ne sert à rien
     res.send('Vous êtes bien déconnecté')
 });
 
@@ -97,8 +94,7 @@ app.post('/connection', (req, res) => {
         var jsonObject = JSON.parse(data);
         if(jsonObject['password']=='tapis'){
             console.log('mode admin activé');
-            req.session.user_id = 1
-            res.send(true)
+            res.send(CONNECTION_TOKEN)
         }else{
             console.log('mode admin désactivé');
             res.send(false)
