@@ -62,7 +62,7 @@ app.post('/listPlayers', (req, res) => {
     db.query(SQL_REQUEST, function (err, result) {
         if (err){
             default_answer = "[{\"id_player\": 1,\"pseudo\": \"Loris PONROY\",\"mail\": \"loris.ponroy@lilo.org\"}]"
-            res.send('Erreur lors de la requette SQL')
+            res.send(default_answer)
             throw err;
         }else{
             res.send(result)
