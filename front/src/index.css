@@ -1,3 +1,10 @@
+:root {
+  --brandColor: #EB9947;
+  --darkBlue: #0C5AB5;
+  --blue: #2461A8;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,9 +19,29 @@ code {
     monospace;
 }
 
-.bgcr {
-  background-color: red;
+
+
+button {
+  background: var(--blue);
+  padding: 0.75em;
+  border-radius: 3em;
+  height:fit-content;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: fit-content;
+  transition-duration: 0.3s;
+
 }
-.bgcy {
-  background-color: yellow;
+
+button:hover{
+  cursor: pointer;
+  background: var(--darkBlue);
+  transition-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+button>p{
+  font-size: 1.25em;
 }

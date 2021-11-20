@@ -3,12 +3,14 @@ const mysql = require('mysql');
 const PORT = process.env.PORT || 4000
 const app = express()
 
+
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
     database: "test"
   });
+/*
 db.connect(function(err) {
     if (err){
         console.log(err);
@@ -17,11 +19,12 @@ db.connect(function(err) {
         console.log("Connecté à la base de données MySQL!");
     }
 });
+*/
 app.use(express.static('public'))
 
 //Juste une adresse pour verifier que le back fonctionne correctement
 app.get('/', (req, res) => {
-    res.send('Le back fonctionne')
+    res.send('Le bacsk fonctionne')
 });
 
 //Renvoie la liste de toutes les informations du dernier tournois passé

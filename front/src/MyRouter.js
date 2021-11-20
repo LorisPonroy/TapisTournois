@@ -6,7 +6,7 @@ function MyRouter() {
     return (
         <Router>
             <Routes>
-                <Route exact path="/" element={<App />} />
+                <Route exact path="/" element={<></>} />
             </Routes>
         </Router>
     )
