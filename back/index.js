@@ -48,8 +48,8 @@ app.post('/historique', (req, res) => {
     SQL_REQUEST = "SELECT * FROM TAPIS_TOURNAMENT"
     db.query(SQL_REQUEST, function (err, result) {
         if (err){
-            res.send('Erreur lors de la requette SQL')
-            throw err;
+            default_answer = "[{\"id_tournament\": 1,\"start_date\": \"2021-11-20T12:00:00.000Z\",\"name\": \"Tournoi de test\"}]"
+            res.send(default_answer)
         }else{
             res.send(result)
         }
@@ -63,7 +63,6 @@ app.post('/listPlayers', (req, res) => {
         if (err){
             default_answer = "[{\"id_player\": 1,\"pseudo\": \"Loris PONROY\",\"mail\": \"loris.ponroy@lilo.org\"}]"
             res.send(default_answer)
-            throw err;
         }else{
             res.send(result)
         }
