@@ -61,6 +61,7 @@ app.post('/listPlayers', (req, res) => {
     SQL_REQUEST = "SELECT * FROM TAPIS_PLAYER"
     db.query(SQL_REQUEST, function (err, result) {
         if (err){
+            default_answer = "[{\"id_player\": 1,\"pseudo\": \"Loris PONROY\",\"mail\": \"loris.ponroy@lilo.org\"}]"
             res.send('Erreur lors de la requette SQL')
             throw err;
         }else{
