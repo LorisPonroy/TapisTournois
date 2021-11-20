@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../logo.png'
 import './theme.css'
+import axios from 'axios'
 function NavBar() {
 
     const [isAdmin, setIsAdmin] = React.useState(false)
@@ -15,6 +16,8 @@ function NavBar() {
             /**
              * Send request
              */
+            axios.post('http://localhost:4000/connection',{password : pass})
+                .then(setIsAdmin(true))
         } 
 
     }
@@ -37,6 +40,10 @@ function NavBar() {
     }
 
 
+    const checkIsLogged  = () => {
+        axios.get("http://localhost:4000/islogged").then(response => console.log('Is logged response : ',response))
+    }
+
     return (
         <div className="backNav">
             <img id='LogoTapis' src={logo} />
@@ -44,8 +51,9 @@ function NavBar() {
 
             <div className="grpButtonNavBar">
                 {renderButton()}
-
             </div>
+
+            <button onClick={() => checkIsLogged()}>isLogged</button>
 
         </div>
     )

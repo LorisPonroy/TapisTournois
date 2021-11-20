@@ -1,7 +1,10 @@
 const express = require("express")
 const mysql = require('mysql');
 const PORT = process.env.PORT || 4000
+var cors = require('cors')
 const app = express()
+app.use(cors())
+
 var session = require('express-session');
 
 //================================== MISE EN PLACE DU SERVEUR ==================================
