@@ -39,7 +39,7 @@ function checkAuth(req, res, next) {
 //================================== GET METHODS ==================================
 //Juste une adresse pour verifier que le back fonctionne correctement
 app.get('/', (req, res) => {
-    res.send('Le bacsk fonctionne')
+    res.send('Le back fonctionne')
 });
 
 app.get('/islogged', (req, res) => { //Sert également à rien
@@ -83,7 +83,6 @@ app.get('/lastTournament', (req, res) => {
                                 res.send(err)
                                 throw err
                             } else {
-                                console.log(result)
                                 joueur['player_killed'] = result
                                 cpt = cpt+1
                                 if(cpt === objectif){

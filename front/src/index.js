@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import MyRouter from './MyRouter';
+import MyRouter from './components/MyRouter';
 import NavBar from './components/NavBar/NavBar';
+import LastTournament from './components/LastTournament';
 
 ReactDOM.render(
   <React.StrictMode>
     <NavBar/>
     <MyRouter />
+    <LastTournament/>
   </React.StrictMode>,
   document.getElementById('root')
 );
