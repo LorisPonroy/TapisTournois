@@ -3,12 +3,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import ListTournois from './components/ListsTournois/ListTournois';
+import FormulaireTournoi from './components/FormulaireTournoi/FormulaireTournoi';
+
 function MyRouter() {
     return (
         <Router>
             <Routes>
                 <Route exact path="/" element={<></>} />
                 <Route exact path="/listTournoi" element={<ListTournois/>} />
+                <Route exact path="/formulaireTournoi" element={<FormulaireTournoi/>} />
             </Routes>
         </Router>
     )
