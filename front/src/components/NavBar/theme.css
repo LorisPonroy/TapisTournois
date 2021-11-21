@@ -12,7 +12,6 @@
 
     display: flex;
     flex-flow: row;
-
     background: var(--brandColor);
 }
 

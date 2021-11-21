@@ -1,0 +1,28 @@
+
+.ListLigneContainer{
+    width: 100%;
+    height: 83vh;
+    max-height: 100vh;
+    margin: auto;
+    background: var(--tapis);
+    overflow-y: scroll;
+}
+
+.imgTrophee{
+    height: 48px;
+    width: 48px;
+    margin: auto;
+}
+
+.lineContainer{
+    margin: 3px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background: #F7D9BA;
+    padding: 0.25em;
+    border-radius: 2em;
+}
+
+.lineContainer>p{
+    margin: auto;
+}

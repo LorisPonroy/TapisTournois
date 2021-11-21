@@ -53,8 +53,6 @@ function NavBar() {
                 {renderButton()}
             </div>
 
-            <button onClick={() => checkIsLogged()}>isLogged</button>
-
         </div>
     )
 }
