@@ -9,12 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "access-control": "^1.0.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "express-session": "^1.17.2",
     "express.js": "^1.0.0",
     "mysql": "^2.18.1",
-    "tedious": "^14.0.0"
+    "npm": "^8.3.2",
+    "socket.io": "^4.4.1",
+    "tedious": "^14.0.0",
+    "xmlhttprequest": "^1.8.0",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
