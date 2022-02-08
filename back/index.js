@@ -36,7 +36,7 @@ db.connect(function (err) {
         console.log(err);
         console.log("Tentative n°2");
         db = mysql.createConnection({
-            host: "localhost",
+            host: "127.0.0.1",
             port: "443",
             user: "TAPIS",
             password: "hL8_ePk_Ns",
@@ -44,7 +44,7 @@ db.connect(function (err) {
         });
         db.connect(function (err) {
             if (err) {
-                console.log(err);
+                console.error("Failed to connect to DataBase with address : 127.0.0.1:443")
                 throw err;
             } else {
                 console.log("Connecté à la base de données MySQL!");
