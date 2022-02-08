@@ -44,6 +44,7 @@ db.connect(function (err) {
         });
         db.connect(function (err) {
             if (err) {
+                console.error("Failed to connect to DataBase with address : 127.0.0.1:443")
                 throw err;
             } else {
                 console.log("Connecté à la base de données MySQL!");
