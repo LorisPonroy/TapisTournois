@@ -37,7 +37,7 @@ db.connect(function (err) {
         console.log("Tentative n°2");
         db = mysql.createConnection({
             host: "127.0.0.1",
-            port: "443",
+            port: "3306",
             user: "TAPIS",
             password: "hL8_ePk_Ns",
             database: "TAPIS"
@@ -94,7 +94,7 @@ io.on("connection", function (socket) {
 //================================== GET METHODS ==================================
 //Juste une adresse pour verifier que le back fonctionne correctement
 app.get('/', (req, res) => {
-    res.send('Le back fonctionne')
+    res.send(true)
 });
 
 app.get('/getAllTournamentsID', (req, res) => {
@@ -248,11 +248,6 @@ app.get('/lastTournament', (req, res) => {
             });
         }
     });
-});
-
-//Permet de récuperer la liste des toutes les informations à propros de tous les tournois dans la BDD
-app.get('/historique', (req, res) => {
-    res.send('API désactivée')
 });
 
 app.get('/getTournamentInformations', (req, res) => {
