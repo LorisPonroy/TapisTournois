@@ -24,6 +24,9 @@
   <!--SOCKET IO-->
   <script src="socket.io/dist/socket.io.js"></script>
 
+  <!--BACKEND CONNECTION-->
+  <script src="config.js"></script>
+
   <!--CSS-->
   <link rel="stylesheet" href="index.css">
 </head>
@@ -399,7 +402,6 @@
 
 
 <script>
-  const BACK_URL = "http://localhost:4000";
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const tournamentID = urlParams.get('id')
@@ -700,7 +702,7 @@
   }
 
   // --------------- SOCKET IO --------------- //
-  const socket = io("http://localhost:4000");
+  const socket = io(BACK_URL);
   socket.on("updateTournamentsList", data => {
     
   });

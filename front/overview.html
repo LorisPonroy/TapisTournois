@@ -1,13 +1,3 @@
-<script src="https://cdn.socket.io/4.4.0/socket.io.min.js"
-    integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj"
-    crossorigin="anonymous"></script>
-<!--<script type="text/javascript" src="index.js"></script>-->
-<script>
-    BACK_URL = "http://localhost:4000";
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const tournamentID = urlParams.get('id')
-</script>
 <!doctype html>
 <html lang="en">
 
@@ -32,6 +22,15 @@
 
     <!--SOCKET IO-->
     <script src="socket.io/dist/socket.io.js"></script>
+
+    <!--BACKEND CONNECTION-->
+    <script src="config.js"></script>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const tournamentID = urlParams.get('id')
+    </script>
 
     <!--CSS-->
     <link rel="stylesheet" href="index.css">

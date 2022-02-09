@@ -1,3 +1,4 @@
+const CONFIG = require('./config.json')
 const express = require("express")
 const mysql = require('mysql');
 const PORT = process.env.PORT || 4000
@@ -24,32 +25,16 @@ const io = require('socket.io')(server, {
 
 //================================== MISE EN PLACE DU SERVEUR ==================================
 let db = mysql.createConnection({
-    host: "ponroypagnier.synology.me",
-    port: "33006",
-    user: "TAPIS",
-    password: "hL8_ePk_Ns",
-    database: "TAPIS"
+    host: CONFIG.db_adress,
+    port: CONFIG.db_port,
+    user: CONFIG.db_user,
+    password: CONFIG.db_password,
+    database: CONFIG.db_name
 });
 
 db.connect(function (err) {
     if (err) {
-        console.log(err);
-        console.log("Tentative n°2");
-        db = mysql.createConnection({
-            host: "127.0.0.1",
-            port: "3306",
-            user: "TAPIS",
-            password: "hL8_ePk_Ns",
-            database: "TAPIS"
-        });
-        db.connect(function (err) {
-            if (err) {
-                console.error("Failed to connect to DataBase with address : 127.0.0.1:443")
-                throw err;
-            } else {
-                console.log("Connecté à la base de données MySQL!");
-            }
-        });
+        throw err
     } else {
         console.log("Connecté à la base de données MySQL!");
     }
@@ -98,11 +83,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/getAllTournamentsID', (req, res) => {
+    console.log("Ask for All tournaments ID...")
     let SQL_REQUEST = "SELECT id_tournament FROM TAPIS_POK_TOURNAMENT"
     db.query(SQL_REQUEST, function (err, result) {
         if (err) {
             res.send(err)
         } else {
+            console.log("send all tournaments ID : " + result)
             res.send(result)
         }
     });
