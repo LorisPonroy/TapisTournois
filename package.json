@@ -1,7 +1,32 @@
 {
+  "name": "vaire",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
   "dependencies": {
-    "bootstrap": "^3.4.1",
-    "socket.io": "^4.4.1",
-    "socket.io-client": "^4.4.1"
+    "@babel/runtime": "^7.17.9",
+    "bcrypt": "^5.1.0",
+    "jquery": "^3.6.1",
+    "meteor-node-stubs": "^1.2.1",
+    "simpl-schema": "^3.2.0",
+    "svelte": "^3.46.4"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "nodeModules": {
+      "recompile": {
+        "svelte": [
+          "legacy"
+        ]
+      }
+    },
+    "testModule": "tests/main.js"
   }
 }
