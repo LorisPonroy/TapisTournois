@@ -1,5 +1,5 @@
 {
-  "name": "vaire",
+  "name": "TapisTournois",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -10,23 +10,21 @@
   "dependencies": {
     "@babel/runtime": "^7.17.9",
     "bcrypt": "^5.1.0",
-    "jquery": "^3.6.1",
-    "meteor-node-stubs": "^1.2.1",
-    "simpl-schema": "^3.2.0",
-    "svelte": "^3.46.4"
+    "jquery": "^3.6.0",
+    "meteor-node-stubs": "^1.2.1"
   },
   "meteor": {
     "mainModule": {
       "client": "client/main.js",
       "server": "server/main.js"
     },
-    "nodeModules": {
-      "recompile": {
-        "svelte": [
-          "legacy"
-        ]
-      }
-    },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "@types/meteor": "^2.8.1",
+    "@types/meteor-astronomy": "^2.6.7",
+    "eslint": "^8.29.0",
+    "eslint-import-resolver-meteor": "^0.4.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }
