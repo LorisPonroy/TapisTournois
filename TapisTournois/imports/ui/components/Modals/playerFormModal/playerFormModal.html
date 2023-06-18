@@ -1,0 +1,46 @@
+<template name="playerFormModal">
+    <div class="modal fade show" id="playerFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 shadowTitle" id="staticBackdropLabel">
+                        {{#if player}}
+                            Edition de {{player.pseudo}}
+                        {{else}}
+                            Ajouter un nouveau joueur
+                        {{/if}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="js-add-player">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="pseudo">Pseudo</label>
+                            <input type="text" class="form-control" id="pseudo" value="{{player.pseudo}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" class="form-control" id="firstname" value="{{player.firstName}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" value="{{player.lastName}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" id="email" value="{{player.email}}" >
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    {{#if player}}
+                        <button type="submit" class="btn btn-success center-btn js-add-player" data-bs-dismiss="modal">Sauvegarder</button>
+                    {{else}}
+                        <button type="submit" class="btn btn-success center-btn js-add-player" data-bs-dismiss="modal">Ajouter</button>
+                    {{/if}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

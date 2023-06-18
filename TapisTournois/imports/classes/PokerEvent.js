@@ -19,12 +19,14 @@ const PokerEvent = Class.create({
 		},
 		smallBlind: {
 			type: Number,
+			optional: true,
 			default: function () {
 				return 0;
 			}
 		},
 		bigBlind: {
 			type: Number,
+			optional: true,
 			default: function () {
 				return 0;
 			}
@@ -36,6 +38,11 @@ const PokerEvent = Class.create({
 			}
 
 		},
+	},
+	helpers: {
+		getFormatedDuration() {
+			return new Date(this.duration * 1000).toISOString().slice(11, 19);
+		}
 	},
 	meteorMethods: {
 

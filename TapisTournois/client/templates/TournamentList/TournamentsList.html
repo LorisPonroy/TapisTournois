@@ -1,0 +1,23 @@
+<template name="tournamentsList">
+    <h1 class="cat_title">Tournois enregitrés</h1>
+    <br>
+    <div class="d-flex justify-content-center">
+        {{> addButton text="Ajouter un tournoi" function=OpenModalFunction}}
+    </div>
+    <div class="centered">
+        <section class="cards">
+            {{#each t in tournaments}}
+                {{> tournamentCard tournament=t}}
+            {{/each}}
+        </section>
+    </div>
+
+    <style>
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: fit-content;
+        }
+    </style>
+</template>

@@ -1,0 +1,75 @@
+<template name="playersList">
+    <h1 class="cat_title">Liste des joueurs</h1>
+    <br/>
+    <div class="d-flex justify-content-center">
+        {{>addButton text="Ajouter un joueur" function=OpenModalFunction}}
+        <div id="filterButton">
+            <img src="/images/icons/filter.png"/>
+            <span class="texteduboutton_4">Filtrer</span>
+        </div>
+    </div>
+    <input id="js-filter-players" class="form-control" type="search" placeholder="Recherche ...">
+    <br>
+
+    <div class="centered">
+        <section class="cards">
+            {{#each p in players}}
+                {{> playerCard player=p actions=playerActions }}
+            {{/each}}
+        </section>
+    </div>
+
+    <style>
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: fit-content;
+        }
+        #filterButton img{
+            height: 100%;
+            filter : invert();
+        }
+        #filterButton{
+            padding:10px;
+            border-radius:40px;
+            background-color:var(--color-edit);
+            overflow:hidden;
+            /*-webkit-transition:all 0.2s ease-in;
+            -moz-transition:all 0.2s ease-in;
+            -ms-transition:all 0.2s ease-in;
+            -o-transition:all 0.2s ease-in;
+            transition:all 0.2s ease-in;*/
+            box-shadow: 5px 5px 15px #000;
+            cursor: pointer;
+            {{#if isPhone}}
+                position: fixed;
+                bottom: 6vh;
+                left: 10px;
+                width:4.5rem;
+                height:4.5rem;
+                z-index: 1001;
+            {{else}}
+                width:3.5rem;
+                height:3.5rem;
+            {{/if}}
+        }
+        #filterButton:hover{
+            width:fit-content;
+            height:3.5rem;
+            border-radius:40px;
+            background-color:var(--color-edit);
+            color: white;
+        }
+        #filterButton span
+        {
+            padding-right: 10px;
+            float:right;
+            line-height:2.2rem;
+            padding-left: 10px;
+            color:#ffffff;
+            font-weight:300;
+            font-size:18px;
+        }
+    </style>
+</template>

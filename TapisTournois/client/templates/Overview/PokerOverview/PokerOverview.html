@@ -1,0 +1,89 @@
+<template name="pokerOverview">
+    <div id="tables_container" class="d-flex justify-content-around">
+
+    </div>
+
+    <!-- Si c'est la Pause -->
+    {{#if isPause}}
+    <div id="pause-screen">
+        <div style="margin-top: 45vh">
+            <h1 style="text-align:center;">C'est la Pause !</h1>
+            <h1 style="text-align:center;" class="displayEventTime"></h1>
+        </div>
+        <div class="rotating-symbol-container" style="--n:8">
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: red">♥</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♥</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: red">♥</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♥</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: red">♥</div>
+            <div class="rotating-symbol rotating-symbol2" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♠</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♥</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: goldenrod">♣</div>
+            <div class="rotating-symbol2 rotating-symbol" style="color: red">♦</div>
+        </div>
+    </div>
+    {{/if}}
+
+        <div style="margin: auto">
+            <div class="d-flex justify-content-around align-items-center" style="width: 100vw;">
+                <div class="infoPanel d-flex flex-column">
+                    <span>Stack moyen :</span>
+                    <span style="text-align: right">{{averageStack tournament.playerStates}}</span>
+                    <span>Pot total :</span>
+                    <span style="text-align: right">{{totalPot tournament.playerStates}}</span>
+                    <span>Joueurs :</span>
+                    <span style="text-align: right">{{livingPlayerNumber tournament.playerStates}}/{{totalPlayerNumber tournament.playerStates}}</span>
+                </div>
+                <div>
+                    <img src="/images/rouge_petite.png" id="imgPetiteBlind" />
+                    <div id="textPetiteBlind">{{getSmallBlind (getCurrentEvent)}}</div>
+                    <div id="divNextPetiteBlind">
+                        <img src="/images/prochaine_petite.png" id="imgNextPetiteBlind" />
+                        <div id="textNextPetiteBlind">{{getNextSmallBlind (getCurrentEvent)}}</div>
+                    </div>
+                </div>
+                <div id="timer" class="align-self-start d-flex align-items-center justify-content-center border-animation">
+                    <div id="global_timer">{{tournamentTime}}</div>
+                    <div id="event_timer" class="event_timer">{{eventTime}}</div>
+                    <div id="next_pause_text">Prochaine pause</div>
+                    <div id="next_pause_timer">{{nextPauseTime}}</div>
+                    <div class="rotating-symbol-container" style="--n:8">
+                        <div class="rotating-symbol" style="color: goldenrod">♠</div>
+                        <div class="rotating-symbol" style="color: red">♥</div>
+                        <div class="rotating-symbol" style="color: goldenrod">♣</div>
+                        <div class="rotating-symbol" style="color: red">♦</div>
+                        <div class="rotating-symbol" style="color: goldenrod">♠</div>
+                        <div class="rotating-symbol" style="color: red">♥</div>
+                        <div class="rotating-symbol" style="color: goldenrod">♣</div>
+                        <div class="rotating-symbol" style="color: red">♦</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="/images/orange_grosse.png" id="imgGrosseBlind">
+                    <div id="textGrosseBlind">{{getBigBlind (getCurrentEvent)}}</div>
+                    <div id="divNextGrosseBlind">
+                        <img src="/images/prochaine_grosse.png" id="imgNextGrosseBlind">
+                        <div id="textNextGrosseBlind">{{getNextBigBlind (getCurrentEvent)}}</div>
+                    </div>
+                </div>
+                <div class="infoPanel">
+                    <h3 style="text-align: center">Dernier morts</h3>
+                </div>
+            </div>
+        </div>
+</template>

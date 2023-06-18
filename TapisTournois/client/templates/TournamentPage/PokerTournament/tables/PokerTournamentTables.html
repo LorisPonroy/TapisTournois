@@ -1,0 +1,39 @@
+<template name="pokerTablesSubPage">
+    {{> pokerTournamentNavBar tournament=tournament}}
+    <button class="btn btn-warning js-shuffle-tables">Melanger les tables</button>
+    {{> paginationControls RV_pageNumber=tablePage}}
+    {{#if loaded}}
+    <div class="d-flex flex-wrap justify-content-around">
+        {{#each num in allTablesNums}}
+            {{> pokerTable tableNumber=num}}
+        {{/each}}
+    </div>
+    {{else}}
+        {{> loading}}
+    {{/if}}
+
+    <style>
+        .tableItem{
+            background-color: rgba(0, 0, 0, 0.82);
+            border: white 1px solid;
+            box-shadow: 5px 5px 15px #000;
+        }
+    </style>
+</template>
+
+<template name="pokerTable">
+    <ul class='circle-container d-flex flex-column justify-content-center'>
+        Table {{tableNumber}}
+        <button value="{{tableNumber}}" class="btn js-delete-table" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete table">🗑️</button>
+        {{#each p in playerOfTable tableNumber}}
+            {{> pokerTablePlayerItem playerState=p}}
+        {{/each}}
+    </ul>
+</template>
+<template name="pokerTablePlayerItem">
+    <li>
+        <div data-value="{{playerState._id}}" class="d-flex flex-column justify-content-center js-move-player tableItem" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Déplacer {{playerState.player.pseudo}}">
+            {{playerState.player.pseudo}}
+        </div>
+    </li>
+</template>

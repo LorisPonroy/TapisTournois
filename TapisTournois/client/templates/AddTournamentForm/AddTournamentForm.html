@@ -1,0 +1,24 @@
+<template name="addTournamentForm">
+    <h4>Ajouter un nouveau tournoi</h4>
+      <form class="js-add-tournament">
+
+        <input id="title" name="title" type="text" value="{{title}}" class="validate">
+        <label for="title">Title</label>
+        <fieldset>
+    <legend>Select a game:</legend>
+
+        <div>
+          <input type="radio" id="poker" name="game" value="poker" checked>
+          <label for="poker">Poker</label>
+        </div>
+
+        <div>
+          <input type="radio" id="tarot" name="game" value="tarot">
+          <label for="tarot">Tarot</label>
+        </div>
+    </fieldset>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+      </form>
+</template>

@@ -1,0 +1,96 @@
+<template name="tmp">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Connexion</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail :</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe :</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                </form>
+            </div>
+            <div class="card-footer">
+                <p>Pas encore inscrit ? <a href="/inscription">Créez un compte</a></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #242526;
+        }
+
+        .card {
+            width: 400px;
+            background-color: #18191A;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid #3A3B3C;
+            color: #FFFFFF;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3A3B3C;
+            color: #FFFFFF;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #008000;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #006400;
+        }
+
+        .card-footer {
+            padding: 20px;
+            border-top: 1px solid #3A3B3C;
+            color: #FFFFFF;
+        }
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</template>

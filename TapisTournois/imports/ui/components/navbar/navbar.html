@@ -1,0 +1,103 @@
+<template name="navbar">
+    {{#if isPhone}}
+        {{> navbardevice_phone}}
+    {{else}}
+        {{> navbardevice_desktop}}
+    {{/if}}
+</template>
+
+<template name="navbardevice_desktop">
+    {{#if currentUser}}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Tournois</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/players">Joueurs</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex justify-content-end flex-fill">
+                    {{#if isInRole 'admin'}}
+                        {{> adminNavbar}}
+                    {{/if}}
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                {{currentUser.username}}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" id="logout" href="#">Déconnexion</a></li>
+                            </ul>
+                        </li>
+
+                </ul>
+                <img id="user-image" src="/images/logo_tapis.png">
+            </div>
+        </div>
+    </nav>
+    {{/if}}
+
+    <style>
+        #user-image{
+            height: 3em;
+        }
+    </style>
+</template>
+
+<template name="adminNavbar">
+    <li class="nav-item">
+        <a class="nav-link admin-link" href="/dataManager">🔏Base de donnée</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link admin-link" href="/admin">🔏Utilisateurs</a>
+    </li>
+
+    <style>
+        .admin-link{
+            color: red;
+        }
+    </style>
+</template>
+
+<template name="navbardevice_phone">
+    <nav id="mobile_app_nav" role="navigation" class="d-flex justify-content-center">
+        <a href="/" class="d-flex align-items-center justify-content-center">Tournois</a>
+        <a href="/players" class="d-flex align-items-center justify-content-center">Joueurs</a>
+        <img src="/images/logo_tapis.png"/>
+        <a href="/players" class="d-flex align-items-center justify-content-center">Mon compte</a>
+        <a href="#" class="d-flex align-items-center justify-content-center">Contact</a>
+    </nav>
+
+    <style>
+        #mobile_app_nav{
+            position: fixed;
+            bottom: 0;
+            height: 5vh;
+            background-color: var(--color-warning);
+            width: 100vw;
+            z-index: 1000;
+        }
+        #mobile_app_nav a{
+            text-decoration: none;
+            color: white;
+            height: 100%;
+            width: 25%;
+            text-align: center;
+            text-shadow: 3px 3px 10px #000;
+        }
+
+        #mobile_app_nav img{
+            height: 200%;
+            transform: translateY(-50%);
+        }
+    </style>
+</template>

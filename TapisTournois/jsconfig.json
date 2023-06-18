@@ -9,18 +9,18 @@
         "./*"
       ],
       "meteor/mongo": [
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/local_collection_driver.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/collection.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/connection_options.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/doc_fetcher.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/mongo_driver.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/mongo_utils.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/observe_multiplex.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/oplog_observe_driver.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/oplog_tailing.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/oplog_v2_converter.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/polling_observe_driver.js",
-        "/home/loris/.meteor/packages/mongo/1.16.3/web.browser/remote_collection_driver.js"
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/local_collection_driver.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/collection.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/connection_options.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/doc_fetcher.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/mongo_driver.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/mongo_utils.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/observe_multiplex.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/oplog_observe_driver.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/oplog_tailing.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/oplog_v2_converter.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/polling_observe_driver.js",
+        "/home/loris/.meteor/packages/mongo/1.16.4/web.browser/remote_collection_driver.js"
       ],
       "meteor/jquery": [
         "/home/loris/.meteor/packages/jquery/1.11.11/web.browser/main.js",
@@ -30,7 +30,7 @@
         "/home/loris/.meteor/packages/reactive-var/1.0.12/web.browser/reactive-var.js"
       ],
       "meteor/tracker": [
-        "/home/loris/.meteor/packages/tracker/1.2.1/web.browser/tracker.js"
+        "/home/loris/.meteor/packages/tracker/1.3.0/web.browser/tracker.js"
       ],
       "meteor/es5-shim": [
         "/home/loris/.meteor/packages/es5-shim/4.8.0/web.browser/client.js",
@@ -40,7 +40,7 @@
         "/home/loris/.meteor/packages/es5-shim/4.8.0/web.browser/import_globals.js"
       ],
       "meteor/ecmascript": [
-        "/home/loris/.meteor/packages/ecmascript/0.16.4/web.browser/ecmascript.js"
+        "/home/loris/.meteor/packages/ecmascript/0.16.5/web.browser/ecmascript.js"
       ],
       "meteor/shell-server": [
         "/home/loris/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
@@ -304,7 +304,8 @@
         "/home/loris/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/plugins/fast-render.js"
       ],
       "meteor/kadira:blaze-layout": [
-        "/home/loris/.meteor/packages/kadira_blaze-layout/2.0.1/web.browser//packages/kadira_blaze-layout.js"
+        "/home/loris/.meteor/packages/kadira_blaze-layout/2.3.0/web.browser/lib/client/namespace.js",
+        "/home/loris/.meteor/packages/kadira_blaze-layout/2.3.0/web.browser/lib/client/layout.js"
       ],
       "meteor/meteortoys:allthings": [
         "/home/loris/.meteor/packages/meteortoys_allthings/1.0.2/web.browser//packages/meteortoys_allthings.js"

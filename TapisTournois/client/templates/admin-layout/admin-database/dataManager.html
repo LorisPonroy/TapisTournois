@@ -1,0 +1,11 @@
+<template name="dataManager">
+    <h1>Tous les documents</h1>
+    {{#each collections}}
+        <h2>{{name}}</h2>
+        <ul>
+            {{#each documents}}
+                <li>{{_id}}</li>
+            {{/each}}
+        </ul>
+    {{/each}}
+</template>

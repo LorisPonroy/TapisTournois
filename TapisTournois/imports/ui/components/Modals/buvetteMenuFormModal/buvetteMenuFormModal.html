@@ -1,0 +1,38 @@
+<template name="buvetteMenuFormModal">
+    <div class="modal fade show" id="menuFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 shadowTitle" id="staticBackdropLabel">
+                        {{#if menu}}
+                            Edition de {{menu.title}}
+                        {{else}}
+                            Ajouter un Menu
+                        {{/if}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="js-form-event">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="title">Nom</label>
+                            <input type="text" class="form-control" id="title" value="{{menu.title}}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Prix</label>
+                            <input type="text" class="form-control" id="price" value="{{menu.price}}" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    {{#if menu}}
+                        <button type="submit" class="btn btn-success center-btn" data-bs-dismiss="modal">Sauvegarder</button>
+                    {{else}}
+                        <button type="submit" class="btn btn-success center-btn" data-bs-dismiss="modal">Ajouter</button>
+                    {{/if}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,6 +1,5 @@
 import { Class }
 	from 'meteor/jagi:astronomy';
-import { check } from 'meteor/check';
 
 export const Players = new Mongo.Collection('players');
 
@@ -25,10 +24,7 @@ const Player = Class.create({
 		},
 		lastName: {
 			type: String,
-			validators: [{
-				type: 'minLength',
-				param: 2
-			}]
+			optional: true,
 		},
 		email: {
 			type: String,
@@ -37,11 +33,15 @@ const Player = Class.create({
 				type: 'email'
 			}]
 		},
+		mailing: {
+			type : Boolean,
+			optional: false,
+			default: function () {
+				return false;
+			}
+		}
 	},
 	meteorMethods: {
-		create() {
-			return this.save();
-		}
 	}
 });
 

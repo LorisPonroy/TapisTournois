@@ -1,0 +1,29 @@
+<template name="pokerPlayersSubPage">
+    {{> pokerTournamentNavBar tournament=tournament}}
+    <br>
+    <div class="d-flex justify-content-center">
+        {{> addButton text="inscrire un joueur" function=OpenModalFunction}}
+    </div>
+    <input id="js-filter-players" class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <div class="centered">
+            <section class="cards">
+                {{#each ps in players}}
+                    {{#if statusIsEgals ps 0}}
+                        {{>playerCard player=ps.player actions=actionsForChekinPlayers pokerPS=ps}}
+                    {{else if statusIsEgals ps 1}}
+                        {{>playerCard player=ps.player actions=actionsForDeadPlayers pokerPS=ps}}
+                    {{else if statusIsEgals ps 2}}
+                        {{>playerCard player=ps.player actions=actionsForPlayingPlayers pokerPS=ps}}
+                    {{/if}}
+                {{/each}}
+            </section>
+        </div>
+    <style>
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: fit-content;
+        }
+    </style>
+</template>

@@ -1,0 +1,113 @@
+<template name="layout">
+    <header>
+        {{>navbar}}
+    </header>
+
+    <main>
+        {{> yield}}
+    </main>
+
+    <footer>
+        <!-- page footer -->
+    </footer>
+
+    <style>
+        @font-face {
+            font-family: Saudagar;
+            src: url("fonts/Saudagar.ttf");
+        }
+        :root {
+            --bs-body-bg: transparent;
+            --bs-card-bg: rgba(190, 77, 0,0.8);
+            --bs-modal-bg: rgba(190, 77, 0,0.8);
+
+            /*Custom colors*/
+            --color-warning: #8a0000;
+            --color-edit: #010256;
+            --color-success: #14420a;
+            --color-transparentBlack: rgba(0, 0, 0, 0.8);
+        }
+
+            {{#if isPhone}}
+                body{
+                    padding-bottom: 10vh;
+                    min-height: 100vh;
+                }
+                html {
+                    background: url("https://images2.alphacoders.com/209/209202.jpg") no-repeat center center scroll;
+                    -webkit-background-size: cover;
+                    -moz-background-size: cover;
+                    -o-background-size: cover;
+                    background-size: cover;
+                }
+            {{else}}
+            html {
+                background: url("https://cdn.pixabay.com/photo/2019/05/04/16/54/gambling-4178457_960_720.jpg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            {{/if}}
+        /*        ScrollBar 4    */
+
+
+        .scrollable::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .scrollable::-webkit-scrollbar-track {
+            background-color: transparent;
+            border: 1.5px solid #7e7e7e;
+            border-radius: 8px;
+        }
+
+        .scrollable::-webkit-scrollbar-thumb {
+            background-color: #f1f1f1;
+            border: 2px solid #616161;
+            border-radius: 8px;
+        }
+        .scrollable{
+            overflow-y: scroll;
+            height: 100%;
+        }
+        .card {
+            --bs-card-bg: inherit;
+        }
+        .card button, .card a{
+            box-shadow: 5px 5px 15px #000;
+        }
+        .modal{
+            --bs-modal-bg:inherit;
+            color: white;
+        }
+        .shadowTitle{
+            font-family: 'Open Sans Condensed', sans-serif;
+            position: relative;
+            text-align: center;
+            text-shadow: 3px 3px 10px #000;
+        }
+        input[type=search],input[type=search]:focus{
+            background-color: var(--color-transparentBlack);
+            width: 80%;
+            margin: 10px auto;
+        }
+        .modal form input,.modal form input:focus,.modal form select,.modal form select:focus{
+            background-color: var(--color-transparentBlack);
+        }
+    </style>
+</template>
+
+<template name="pokerOverviewLayout">
+    <div id="pokerOverviewBody">
+        <main>
+            {{> yield}}
+        </main>
+    </div>
+</template>
+
+<template name="loginLayout">
+    <main>
+        {{> yield}}
+    </main>
+</template>

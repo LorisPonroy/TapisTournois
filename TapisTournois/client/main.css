@@ -1,4 +1,199 @@
-body {
-  padding: 10px;
-  font-family: sans-serif;
+@import "pokerTable.css";
+
+.cat_title{
+  background: rgba(100, 100, 100, 0.5);
+  color: white;
+  box-shadow: 10px 10px 30px #000;
+  width: fit-content;
+  padding: 1%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  position: relative;
+  text-align: center;
+  text-shadow: 3px 3px 10px #000;
+  margin: auto;
 }
+
+.card{
+  color: white;
+  box-shadow: 10px 10px 30px #000;
+  border-radius: 5%;
+}
+
+.card-title{
+  font-family: 'Open Sans Condensed', sans-serif;
+  position: relative;
+  margin-top: 0px;
+  text-align: center;
+  color: #ddd;
+  text-shadow: 3px 3px 10px #000;
+}
+
+.roundAddButton{
+  background-color: var(--color-success);
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 31px;
+  height: 4rem;
+  width: 4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 70%;
+
+  box-shadow: 5px 5px 15px #000;
+
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -30%);
+  transform: translate(-50%, -30%);
+}
+
+/*On mobile*/
+@media screen and (max-width: 100vh) {
+  #nav-menu-pc{
+    display: none!important;
+  }
+  *{
+    font-size: 10pt;
+  }
+  .hide-on-pc{
+    display: none!important;
+  }
+}
+
+/*On PC*/
+@media screen and (min-width: 100vh) {
+  #nav-menu-mobile{
+    display: none!important;
+  }
+  .hide-on-mobile{
+    display: none!important;
+  }
+}
+
+#nav-menu-mobile{
+  position: fixed;
+  background-color: #ff9900;
+  width: 100vw;
+  bottom: 0;
+}
+
+#nav-menu-mobile a {
+  font-weight: bold;
+  transition: all 0.5s;
+  position: relative;
+  margin: auto;
+  color: white;
+  text-decoration: none;
+}
+
+#nav-menu-pc{
+  font-family: 'Saudagar'!important;
+  color: white;
+  background-color: #ff9900;
+  text-align: left;
+  padding: 1%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#nav-menu-pc #menu-foot{
+  font-size: large;
+}
+
+#nav-menu-pc .logo{
+  height: 120px;
+  width: 120px;
+}
+
+#nav-menu-pc a {
+  font-weight: bold;
+  transition: all 0.5s;
+  position: relative;
+  margin: 10% 0 10% 0;
+}
+#nav-menu-pc a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+#nav-menu-pc a:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+#nav-menu-pc a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: scale(1.2,1.2);
+}
+#nav-menu-pc a:hover::after {
+  opacity: 1;
+  transform: scale(1,1);
+}
+
+.cat_title{
+  text-align: center;
+}
+
+.center-btn{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-img.icon{
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.crown{
+  height: 10%;
+  width: auto;
+}
+
+.tournament_infos{
+  text-align: left;
+}
+table{
+  border-collapse: separate;
+  border-spacing: 0 0.2em;
+}
+tbody tr th{
+  border-radius: 10px 0 0 10px;
+}
+tbody tr td:last-child{
+  border-radius: 0 10px 10px 0;
+}
+td, th{
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
+#admin-timer{
+  font-size: 750%;
+}
+
+.TournamentSelectionSpan{
+  margin: 2vh 0 0 5vw;
+}
+.tournamentSelection option, .tournamentSelection{
+  text-align: center;
+  font-family: 'Saudagar'!important;
+  background-color: #ff9900;
+  font-size: 50px;
+  margin: 0 5vw 2vh 5vw;
+}
+

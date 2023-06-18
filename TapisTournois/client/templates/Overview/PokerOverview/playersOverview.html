@@ -1,0 +1,22 @@
+<template name="playersOverview">
+    <h1>PSPT 2023</h1>
+    <input id="js-filter-players" class="form-control" type="search" placeholder="pseudo, email, name ..." style="width: 25%; margin: 0 0 25px 50px">
+    <div class="d-flex flex-wrap">
+        {{#each t in (tables tournament.playerStates)}}
+            <table class="table table-striped-columns table-striped table-bordered" style="width: 10vw; margin: 20px">
+                <thead>
+                <tr>
+                    <th scope="col">Table {{t}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each p in (table_players tournament.playerStates t)}}
+                    <tr>
+                        <th scope="row">{{p}}</th>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        {{/each}}
+    </div>
+</template>

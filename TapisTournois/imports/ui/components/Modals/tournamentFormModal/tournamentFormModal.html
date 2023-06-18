@@ -1,0 +1,42 @@
+<template name="tournamentFormModal">
+    <div class="modal fade show" id="tournamentFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 shadowTitle" id="staticBackdropLabel">
+                        {{#if tournament}}
+                            Edition de {{tournament.title}}
+                        {{else}}
+                            Ajouter un nouveau tournoi
+                        {{/if}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="js-add-tournament">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label for="game">Jeu</label>
+                            <select id="game" class="form-control">
+                                <option value="poker">Poker</option>
+                                <option value="tarot">Jeu de score</option>
+                                <!--<option value="-1">Autre...</option>-->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Nom</label>
+                            <input type="text" class="form-control" id="title" value="{{player.title}}" required>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    {{#if tournament}}
+                        <button type="submit" class="btn btn-success center-btn js-add-player" data-bs-dismiss="modal">Sauvegarder</button>
+                    {{else}}
+                        <button type="submit" class="btn btn-success center-btn js-add-player" data-bs-dismiss="modal">Ajouter</button>
+                    {{/if}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

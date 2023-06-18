@@ -1,0 +1,47 @@
+<template name="buvetteMenuSubPage">
+    {{> buvetteNavBar tournament=tournament}}
+    <h1>Menu</h1>
+    {{#each m in tournament.menu}}
+        <div class="menu d-flex justify-content-center">
+            <div style="text-align: right">{{m.title}}</div>
+            <div>{{m.price}}€</div>
+            <div>
+                <button value="{{m._id}}" class="btn btn-danger js-delete-menu">X</button>
+            </div>
+        </div>
+    {{/each}}
+    <div class="addItem js-open-add-menu-modal">+</div>
+
+    <style>
+        .addItem{
+            text-align: center;
+            font-size: 2rem;
+            margin: 1vh 5vw;
+            border: 1px dashed white;
+            color: white;
+            background-color: var(--color-transparentBlack);
+            box-shadow: 5px 5px 15px #000;
+        }
+
+        .addItem:hover{
+            color: green;
+            border-color: green;
+            cursor: pointer;
+        }
+
+        .menu{
+            font-size: 2rem;
+            text-align: center;
+            color: white;
+            margin: 1vh 5vw;
+            padding: 2px;
+            border: 1px solid white;
+            background-color: var(--color-transparentBlack);
+            box-shadow: 5px 5px 15px #000;
+        }
+        .menu div{
+            width: 25%;
+        }
+
+    </style>
+</template>

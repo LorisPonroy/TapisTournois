@@ -1,0 +1,50 @@
+<template name="paginationControls">
+    <div class="pagination d-flex justify-content-center">
+        {{#if hasPrevious}}
+            <a href="#" class="previous-page d-flex"><div class="arrow-left"></div></a>
+        {{/if}}
+            Page {{RV_pageNumber.get}}
+        {{#if hasNext}}
+            <a href="#" class="next-page d-flex"><div class="arrow-right"></div></a>
+        {{/if}}
+    </div>
+
+    <style>
+        .pagination{
+            color: white;
+        }
+        .previous-page{
+            margin-right: 1%;
+            text-decoration: none;
+        }
+        .next-page{
+            margin-left: 1%;
+            text-decoration: none;
+        }
+
+        .arrow-left {
+            width: 0;
+            height: 0;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+            border-right:1rem solid white;
+
+            margin-right: 0.5rem;
+        }
+        .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+            border-left: 1rem solid white;
+
+            margin-left: 0.5rem;
+        }
+        .arrow-left:hover{
+            border-right-color: #555555;
+        }
+        .arrow-right:hover{
+            border-left-color: #555555;
+        }
+    </style>
+</template>

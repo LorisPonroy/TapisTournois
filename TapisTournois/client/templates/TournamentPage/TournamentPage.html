@@ -1,0 +1,8 @@
+<template name="tournament">
+    {{#if tournamentIsPoker}}
+        {{> Template.dynamic template="pokerTournament"}}
+    {{/if}}
+    {{#if tournamentIsTarot}}
+        {{> Template.dynamic template="pokerTournament"}}
+    {{/if}}
+</template>

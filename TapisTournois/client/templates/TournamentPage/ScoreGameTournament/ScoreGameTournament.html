@@ -1,0 +1,110 @@
+<template name="scoreGameTournament">
+    <div class="cat_title" style="padding-bottom: 0">
+        <h1 style="text-align: center">{{tournament.title}}</h1>
+        <ul class="nav nav-tabs d-flex justify-content-between" id="scoreGameTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="/tournament/{{tournament._id}}/home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tournament/{{tournament._id}}/overview" target="_blank">Overview ⮭</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        {{> addButton text="inscrire un joueur" function=OpenModalFunction}}
+    </div>
+    <div>
+        <input id="input_shuffle_nbTables" type="number" min="1" placeholder="nombre de tables">
+        <button class="btn btn-warning js-shuffle-tables">Melanger les tables</button>
+    </div>
+    <br>
+    <br>
+    <table class="table table-dark table-striped">
+        <!--<thead>
+        <tr>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Score</th>
+            <th scope="col">Table</th>
+            <th scope="col">...</th>
+        </tr>
+        </thead>-->
+        <tbody>
+
+        </tbody>
+    </table>
+    <div class="playerContainer">
+        {{#each p in tournament.playerStates}}
+            {{> tarotPlayerItem playerState=p}}
+        {{/each}}
+    </div>
+
+    <style>
+        #scoreGameTab a{
+            color: white;
+            background-color: #ff990055;
+            margin: 0 5px;
+            {{#if isPhone}}
+                font-size: 0.75rem;
+            {{/if}}
+        }
+
+        .playerContainer{
+            width: 100%;
+        }
+
+        .playerItem{
+            width: 100%;
+            background-color: var(--color-transparentBlack);
+            border-bottom: dimgrey 1px solid;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .playerItem button{
+            background-color:dimgrey;
+            border-radius:50%;
+            color: white;
+            font-weight: bold;
+            border:none;
+            width: 1.75rem;
+            height: 1.75rem;
+        }
+
+        .actionMenu{
+            background-color: var(--color-transparentBlack);
+        }
+    </style>
+
+</template>
+
+<template name="tarotPlayerItem">
+    <div class="playerItem d-flex">
+        <div class="d-flex" style="min-width: 25%;">
+            <div class="flex-fill">{{playerState.player.pseudo}}</div>
+            <span style="margin : 0 10px; color: dimgrey">|</span>
+            <div class="ms-auto">table {{playerState.table}}</div>
+        </div>
+        <div class="flex-fill">
+            <span style="margin : 0 10px; color: dimgrey">|</span>
+            Scores : {{scoreSomme playerState}}
+            [
+            {{#each score in playerState.scores}}
+            {{score}},
+            {{/each}}
+            ]
+        </div>
+
+            <div class="btn-group ms-auto">
+                <button type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    ⁝
+                </button>
+                <ul class="dropdown-menu actionMenu">
+                    <li><a class="dropdown-item js-add-score" data-id="{{playerState._id}}">Ajouter un score</a></li>
+                    <li><a class="dropdown-item js-change-table" data-id="{{playerState._id}}">Changer de table</a></li>
+                    <li><a value="{{playerState.player._id}}" class="dropdown-item js-remove-player-from-tournament">Supprimer le joueur</a></li>
+                </ul>
+            </div>
+    </div>
+</template>

@@ -1,14 +1,35 @@
 import { Meteor } from 'meteor/meteor';
-import { started_tournaments } from "../imports/methods/methods"
-import { PokerEvents } from '/imports/classes/PokerEvent';
-import Tournament, { Tournaments } from '/imports/classes/Tournament';
+import {} from "/imports/methods/methods";
+import {PlayerState, PlayerStates, PokerPlayerState} from "/imports/classes/PlayerState";
+import {} from "./publications";
+
+
 
 Meteor.startup(() => {
-    Meteor.setInterval(() => {
-        for (const id in started_tournaments) {
-            let tournament = Tournament.findOne({ _id: id });
-            tournament.time = tournament.time + 1;
-            tournament.save();
+    const myRoles = ["admin","TournamentsManager"]
+
+    const alreadyCreatedRoles = Roles.getAllRoles().fetch().map((r)=>{r._id});
+    myRoles.forEach((role) =>{
+        if(!alreadyCreatedRoles.includes(role._id)){
+            Roles.createRole(role);
         }
-    }, 1000);
+    });
+    if (Meteor.users.find().count() === 0) {
+        const users = [
+            { username: 'admin', email: 'asso.tapis@gmail.com', password: 't@pis', profile: { name: 'Admin' } }
+        ];
+
+        users.forEach(user => {
+            const userId = Accounts.createUser({
+                username: user.username,
+                email: user.email,
+                password: user.password,
+                profile: user.profile
+            });
+
+            if (user.username === 'admin') {
+                Roles.addUsersToRoles(userId, 'admin');
+            }
+        });
+    }
 });

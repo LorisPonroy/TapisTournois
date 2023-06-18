@@ -1,0 +1,79 @@
+<!-- client/user-admin.html -->
+
+<template name="userManagement">
+                <h2>Utilisateurs</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Roles</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each users}}
+                        <tr>
+                            <td>{{username}}</td>
+                            <td>{{#each roles}}{{this._id}} {{/each}}</td>
+                            <td>
+                                <button class="btn btn-primary edit-user" data-id="{{_id}}">Editer</button>
+                                <button class="btn btn-danger delete-user" data-id="{{_id}}">Supprimer</button>
+                            </td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+
+            <!--
+            <div class="col-md-6">
+                {{#if selectedUser}}
+                    <h2>Editer l'utilisateur {{selectedUser.username}}</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="username" value="{{selectedUser.username}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="roles">Roles</label>
+                            <select multiple class="form-control" id="roles">
+                                {{#each roles}}
+                                    <option value="{{this}}">{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary update-user">Mettre à jour</button>
+                        <button type="button" class="btn btn-default cancel-edit">Annuler</button>
+                    </form>
+                {{else}}
+                    <h2>Ajouter un utilisateur</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="roles">Roles</label>
+                            <select multiple class="form-control" id="roles">
+                                {{#each roles}}
+                                    <option value="{{this}}">{{this}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary add-user">Ajouter</button>
+                    </form>
+                {{/if}}
+            </div>
+            -->
+</template>
+
+<template name="adminUserCard">
+    <div></div>
+</template>

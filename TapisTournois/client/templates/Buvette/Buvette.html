@@ -1,0 +1,112 @@
+<template name="buvetteNavBar">
+    <div class="cat_title" style="padding-bottom: 0">
+        <h1 style="text-align: center">{{tournament.title}}</h1>
+        <ul class="nav nav-tabs d-flex justify-content-between" id="buvetteTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a href="/buvette/{{tournament._id}}/menu" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="/buvette/{{tournament._id}}/todo" class="nav-link">Todo</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="/buvette/{{tournament._id}}/done" class="nav-link">Done</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="/buvette/{{tournament._id}}/stats" class="nav-link">Stats</a>
+            </li>
+        </ul>
+    </div>
+    <style>
+        #buvetteTab a{
+            color: white;
+            background-color: #ff990055;
+            margin: 0 5px;
+        }
+    </style>
+</template>
+
+<template name="buvette">
+    <!-- MenuModal -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="menuModalLabel">Ajouter un Menu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="inputAddMenuTitle">Nom</label>
+                    <input id="inputAddMenuTitle" type="text"/>
+                    <br/>
+                    <label for="inputAddMenuPrice">Prix</label>
+                    <input id="inputAddMenuPrice" type="number"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button data-bs-dismiss="modal" type="button" class="btn btn-success js-add-menu">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- OrderModal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="orderModalLabel">Ajouter une commande</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="modalSelectMenu">Menu</label>
+                    <select id="modalSelectMenu">
+                        {{#each m in tournament.menu}}
+                            <option value="{{m._id}}">{{m.title}} - {{m.price}}€</option>
+                        {{/each}}
+                    </select>
+                    <br/>
+                    <label for="modalQuantityInput">Quantité</label>
+                    <input type="number" min="1" placeholder="quantity" id="modalQuantityInput" value="1" style="width: fit-content">
+                    <br/>
+                    <label for="modalSelectPlayer">Joueur</label>
+                    <br/>
+                    <input class="js-filter-players" type="text" placeholder="filtrer">
+                    <select id="modalSelectPlayer">
+                        {{#each p in modalPlayers}}
+                            <option value="{{p._id}}">{{p.player.pseudo}} - </option>
+                        {{/each}}
+                    </select>
+                    <br/>
+                    <label for="modalSelectPlayer">Commentaire</label>
+                    <br/>
+                    <input id="modalInputComment" type="text" placeholder="Commentaire">
+                    <br>
+                    <label for="modalPaymentSelect">Paiement</label>
+                    <select id="modalPaymentSelect">
+                        <option value="-1">Pas payé</option>
+                        <option value="1">Espèces</option>
+                        <option value="2">Crédit</option>
+                        <option value="3">Lydia</option>
+                        <option value="0">Autre</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success js-add-order" data-bs-dismiss="modal">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="buvetteStatsSubPage">
+    <div class="d-flex justify-content-around" id="chartsContainer">
+        <div class="row" style="width: 25%">
+            <h4 style="text-align: center">Nombre de ventes</h4>
+            <canvas id="nbVentesChart"></canvas>
+        </div>
+        <div class="row" style="width: 25%">
+            <h4 style="text-align: center">Recettes</h4>
+            <canvas id="recettesChart"></canvas>
+        </div>
+    </div>
+</template>

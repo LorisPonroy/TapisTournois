@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "mongo": {
+      "options": {
+        "tlsAllowInvalidCertificates": true
+      }
+    }
+  },
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://tapistournoi.e8grolv.mongodb.net/myFirstDatabase"
+    }
+  }
+}

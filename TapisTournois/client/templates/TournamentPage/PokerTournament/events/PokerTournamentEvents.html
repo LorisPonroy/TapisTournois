@@ -1,0 +1,60 @@
+<template name="pokerEventsSubPage">
+    {{> pokerTournamentNavBar tournament=tournament}}
+    <button class="btn btn-success js-add-event center-btn" style="width: fit-content">Ajouter Event</button>
+    <div class="d-flex flex-column align-items-center pokerEventsContainer">
+        {{#each e in events}}
+            {{> pokerEventItem event=e tournament=tournament}}
+        {{/each}}
+    </div>
+
+    <style>
+        .pokerEventsContainer{
+            width: 80%;
+            margin: auto;
+        }
+
+        .pokerEventItem{
+            padding: 1%;
+            margin-bottom: 1%;
+            width: 100%;
+            background-color: var(--color-transparentBlack);
+            box-shadow: 5px 5px 15px #000;
+        }
+
+        .pokerEventItem span{
+            width: 10%;
+        }
+
+        .current{
+            border:2px solid yellow;
+        }
+        .notPassed{
+            border:1px orangered dashed;
+        }
+        .passed{
+            border:1px solid green;
+        }
+    </style>
+</template>
+
+<template name="pokerEventItem">
+        <div class="d-flex pokerEventItem justify-content-between align-items-center ui-sortable-handle {{eventClass}}" data-id="{{event._id}}">
+            <span>{{getTypeName event.type}}</span>
+            {{#if (event.type)}}
+                <span>{{event.smallBlind}}</span>
+                <span>{{event.bigBlind}}</span>
+            {{else}}
+                <span></span>
+                <span></span>
+            {{/if}}
+            <div>
+                <span>{{eventTime}}</span>
+                <span>/</span>
+                <span>{{event.getFormatedDuration}}</span>
+            </div>
+            <div>
+                <button value="{{event._id}}" class="btn btn-primary js-edit-event">Edit</button>
+                <button value="{{event._id}}" class="btn btn-danger js-remove-event-from-tournament">X</button>
+            </div>
+        </div>
+</template>

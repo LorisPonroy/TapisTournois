@@ -1,0 +1,80 @@
+<template name="buvetteDoneSubPage">
+    {{> buvetteNavBar tournament=tournament}}
+    <h1>Commandes passées</h1>
+    {{#each order in ordersDone}}
+        <div class="order d-flex justify-content-center align-items-center order">
+            <div class="flex-fill">{{order.quantity}} x {{order.menu.title}}</div>
+            <div class="flex-fill">{{order.comment}}</div>
+            <div class="flex-fill">{{order.playerState.player.pseudo}}(Table {{order.playerState.table}})</div>
+            <div class="flex-fill">
+                {{#if orderIsNotLivred order}}
+                    <button class="btn js-order-livred" value="{{order._id}}">Livrée</button>
+                {{/if}}
+                <button class="btn js-delete-order" value="{{order._id}}">Annuler</button>
+            </div>
+        </div>
+    {{/each}}
+    {{#each order in ordersLivred}}
+        <div class="order d-flex justify-content-center align-items-center order">
+            <div class="flex-fill">{{order.quantity}} x {{order.menu.title}}</div>
+            <div class="flex-fill">{{order.comment}}</div>
+            <div class="flex-fill">{{order.playerState.player.pseudo}}(Table {{order.playerState.table}})</div>
+            <div class="flex-fill">
+                {{#if orderIsNotLivred order}}
+                    <button class="btn js-order-livred" value="{{order._id}}">Livrée</button>
+                {{/if}}
+                <button class="btn js-delete-order" value="{{order._id}}">Annuler</button>
+            </div>
+        </div>
+    {{/each}}
+    <style>
+        .addItem{
+            text-align: center;
+            font-size: 2rem;
+            margin: 1vh 5vw;
+            border: 1px dashed white;
+            color: white;
+            background-color: var(--color-transparentBlack);
+            box-shadow: 5px 5px 15px #000;
+        }
+
+        .addItem:hover{
+            color: green;
+            border-color: green;
+            cursor: pointer;
+        }
+
+        .order{
+            font-size: 2rem;
+            text-align: center;
+            color: white;
+            margin: 1vh 5vw;
+            padding: 2px;
+            border: 1px solid white;
+            background-color: var(--color-transparentBlack);
+            box-shadow: 5px 5px 15px #000;
+        }
+
+        .order{
+            border: 1px white solid;
+            margin: 1vh 5vw;
+            padding: 5px;
+        }
+
+        .order div{
+            width: 20%;
+        }
+
+        .js-order-livred{
+            background-color: var(--color-success);
+            color: white;
+            box-shadow: 5px 5px 15px #000;
+        }
+
+        .js-delete-order{
+            background-color: var(--color-warning);
+            color: white;
+            box-shadow: 5px 5px 15px #000;
+        }
+    </style>
+</template>

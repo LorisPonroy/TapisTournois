@@ -1,0 +1,65 @@
+<template name="buvetteOrderFormModal">
+    <div class="modal fade show" id="orderFormModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 shadowTitle" id="staticBackdropLabel">
+                        {{#if order}}
+                            Edition de la commande
+                        {{else}}
+                            Ajouter une commande
+                        {{/if}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="js-form-event">
+                <div class="modal-body input-container">
+                    <div class="form-group">
+                        <label for="modalSelectMenu">Menu</label>
+                        <select id="modalSelectMenu" class="form-control">
+                            {{#each m in tournament.menu}}
+                                <option value="{{m._id}}">{{m.title}} - {{m.price}}€</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalQuantityInput">Quantité</label>
+                        <input class="form-control" type="number" min="1" placeholder="quantity" id="modalQuantityInput" value="1" style="width: fit-content">
+                    </div>
+                    <div class="form-group">
+                        <label for="modalSelectPlayer">Joueur</label>
+                        <input class="js-filter-players form-control" type="text" placeholder="filtrer">
+                        <select id="modalSelectPlayer" class="form-control">
+                            {{#each p in playerStates}}
+                                <option value="{{p._id}}">{{p.player.pseudo}} - {{p.table}} </option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalInputComment">Commentaire</label>
+                        <input id="modalInputComment" class="form-control" type="text" placeholder="Commentaire">
+                    </div>
+                    <div class="form-group">
+                        <label for="modalPaymentSelect">Paiement</label>
+                        <select id="modalPaymentSelect" class="form-control">
+                            <option value="-1">Pas payé</option>
+                            <option value="1">Espèces</option>
+                            <option value="2">Crédit</option>
+                            <option value="3">Lydia</option>
+                            <option value="0">Autre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {{#if order}}
+                        <button type="submit" class="btn btn-success center-btn" data-bs-dismiss="modal">Sauvegarder</button>
+                    {{else}}
+                        <button type="submit" class="btn btn-success center-btn" data-bs-dismiss="modal">Ajouter</button>
+                    {{/if}}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,51 @@
+<template name="playerCard">
+    <div class="card mb-3 playerCard {{#if small}}playerCardSmall{{/if}}">
+        {{#unless small}}
+        <div class="card-header d-flex justify-content-between align-items-cente">
+            <h4 class="card-title mb-0">{{player.pseudo}}</h4>
+            {{#if pokerPS}}
+            <div class="num-table d-flex justify-content-center align-items-center">
+                <p class="m-0">Table {{pokerPS.table}}</p>
+            </div>
+            {{/if}}
+        </div>
+        {{/unless}}
+        <div class="card-body">
+            <span>{{player.firstName}}</span>
+            <span>{{player.lastName}}</span>
+            <br/>
+            <span>{{player.email}}</span>
+            <br/>
+
+            {{#each action in actions}}
+                {{#if action.style}}
+                    <button
+                            class="btn js-custom-button"
+                            style="width: 100%;margin-bottom: 0.2rem;{{action.style}}"
+                            value="{{action.name}}">
+                        {{action.name}}
+                    </button>
+                {{else}}
+                    <button class="btn btn-warning js-custom-button"
+                            style="width: 100%;margin-bottom: 0.2rem;"
+                            value="{{action.name}}">
+                        {{action.name}}
+                    </button>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+    <style>
+        .playerCard{
+            max-width: 18rem;
+            min-width:18rem;
+            padding: 0;
+            margin:1rem 1rem;
+        }
+        .playerCardSmall{
+            max-width: 10rem;
+            min-width: 10rem;
+        }
+
+    </style>
+</template>
